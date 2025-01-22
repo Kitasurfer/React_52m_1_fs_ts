@@ -1,15 +1,12 @@
-import './App.css'
-
-// lessons
-// homeworks
-// consultations
-
+import './App.css';
+import Homework05 from './homeworks/Homework05/Homework05';
 
 function App() {
   return (
-    <div className='app'>
-      Hello TS
+    <div>
+      <Homework05 />
     </div>
-  )
+  );
 }
-export default App
+
+export default App;
