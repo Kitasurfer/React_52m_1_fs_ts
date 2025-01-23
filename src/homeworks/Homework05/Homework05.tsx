@@ -14,17 +14,21 @@ const Homework05 = () => {
     { id: 3, name: "Orange", price: 2.0 },
   ];
 
-  return (
-    <div>
-      <h2>Product List</h2>
-      {products.map((product) => (
-        <Product 
-          key={product.id}
-          name={product.name}
-          price={product.price}
-        />
-      ))}
-    </div>
+	const productList = products.map((product) => (
+		<Product 
+			key={product.id}
+			name={product.name}
+			price={product.price}
+		/>
+	));
+
+	return (
+		<div className="homework-05">
+			<h2>Product List</h2>
+			<div className='product-container'>
+				{productList}
+			</div>
+		</div>
   );
 };
 
