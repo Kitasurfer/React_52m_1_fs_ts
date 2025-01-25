@@ -1,10 +1,14 @@
 import './App.css';
-import Homework05 from './homeworks/Homework05/Homework05';
+import Feedback from './components/Feedback/Feedback';
+import Counter from './components/Counter/Counter';
+import Product from './components/Product/Product';
 
 function App() {
   return (
     <div>
-      <Homework05 />
+      <Feedback title="Feedback" />
+     {/*  <Counter initialCount={0} />
+      <Product name="Sample Product" price={100} /> */}
     </div>
   );
 }

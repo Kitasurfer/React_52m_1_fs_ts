@@ -1,7 +1,7 @@
 import './styles.css';
 
 interface ProductProps {
-	key 
+	
   name: string;
   price: number;
 }
