@@ -180,10 +180,10 @@ interface EyesOverlayProps {
 }
 
 const EyesOverlay = memo(({ activeEye, theme }: EyesOverlayProps) => (
-  <div className={`eyes-container`} style={{ display: 'flex', opacity: activeEye ? 1 : 0, transition: 'opacity 0.5s ease', marginTop: '20px' }}>
-    {activeEye === 'like' && <div className={`eye-loader like2 loader`} />}
-    {activeEye === 'reset' && <div className={`eye-loader reset-eyes loader`} />}
-    {activeEye === 'dislike' && <div className={`eye-loader dislike-eyes loader`} />}
+  <div className={`eyes-container ${theme}-theme ${activeEye ? 'active' : ''}`}>
+    {activeEye === 'like' && <div className="eye-loader like2 loader" />}
+    {activeEye === 'reset' && <div className="eye-loader dislike-eyes loader" />}
+    {activeEye === 'dislike' && <div className="eye-loader reset-eyes loader" />}
   </div>
 ));
 
