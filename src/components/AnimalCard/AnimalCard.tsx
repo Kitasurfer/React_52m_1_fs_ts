@@ -1,17 +1,12 @@
 import "./styles.css";
+import { AnimalCardProps } from "./types";
 
-interface AnimalCardProps {
-  animalName: string;
-  animalSpecies: string;
-  animalImg: string;
-  children?: React.ReactNode;
-}
 
 function AnimalCard({ animalName, animalSpecies, animalImg, children }: AnimalCardProps) {
   return (
     <div className="animal-card-wrapper">
       <h3>{animalName}</h3>
-      <div>{animalSpecies}</div>
+      <div>{animalSpecies}</div> {/* // Species это порода животного */}
       <img src={animalImg} className="card-image" />
       {/* prop children позволяет добавлять дополнительную структуру(JSX, компоненты) в компонент */}
       {children}

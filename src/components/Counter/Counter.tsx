@@ -1,12 +1,11 @@
 import { useState } from "react";
 import Button from "../Button/Button";
 import "./styles.css";
+import { CounterProps } from "./types";
 
-interface CounterProps {
-  initialCount?: number;
-}
-
-const Counter = ({ initialCount = 0 }: CounterProps) => {
+function Counter ({
+	 initialCount = 0 
+	}: CounterProps) {
   const [count, setCount] = useState<number>(initialCount);
 
   const increment = () => {

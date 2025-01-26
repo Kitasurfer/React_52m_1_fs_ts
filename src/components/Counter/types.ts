@@ -1,4 +1,8 @@
-// Если в будущем будут пропсы, можно добавить интерфейс
 export interface CounterProps {
-  // Пропсы, если они будут
+  initialCount?: number; //начальный счетчик
+  //minValue?: number; // Минимальное значение счетчика
+  //maxValue?: number; // Максимальное значение счетчика
+  //onIncrement?: () => void; // для увеличения
+  //onDecrement?: () => void; //для уменьшения
+  //className?: string; // Дополнительные классы для стилизации
 }

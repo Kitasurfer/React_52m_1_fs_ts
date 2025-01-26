@@ -1,16 +1,16 @@
 import './styles.css';
+import { ProductProps } from './types';
 
-interface ProductProps {
-	
-  name: string;
-  price: number;
-}
-
-const Product = ({ name, price }: ProductProps) => {
+function Product ({
+	 name, 
+	 price, 
+	 onAddToCart 
+	}: ProductProps){
   return (
     <div className="product">
       <h3>{name}</h3>
       <p>Price: ${price}</p>
+      <button onClick={onAddToCart}>Add to Cart</button>
     </div>
   );
 };

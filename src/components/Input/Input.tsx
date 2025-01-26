@@ -1,13 +1,12 @@
 import './styles.css';
+import { InputProps } from './types';
 
-interface InputProps {
-  label?: string;
-  name: string;
-  type?: string;
-  placeholder?: string;
-}
-
-function Input({ label, name, type = "text", placeholder }: InputProps) {
+function Input({
+	label,
+	name,
+	type = "text",
+	placeholder
+	}: InputProps) {
   return (
     <div className="input-group">
       {label && <label htmlFor={name}>{label}</label>}
