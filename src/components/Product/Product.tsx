@@ -1,17 +1,18 @@
-import './styles.css';
-import { ProductProps } from './types';
 
-function Product ({
-	 name, 
-	 price, 
-	 onAddToCart 
-	}: ProductProps){
+import { ProductProps } from './types';
+import { ProductContainer, ProductTitle } from './styles';
+
+const Product = ({
+  name,
+  price,
+  onAddToCart
+}: ProductProps) => {
   return (
-    <div className="product">
-      <h3>{name}</h3>
+    <ProductContainer>
+      <ProductTitle>{name}</ProductTitle>
       <p>Price: ${price}</p>
       <button onClick={onAddToCart}>Add to Cart</button>
-    </div>
+    </ProductContainer>
   );
 };
 

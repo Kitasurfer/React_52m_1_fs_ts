@@ -1,19 +1,18 @@
 import { ButtonProps } from "./types";
 import { MainButton } from "./styles";
 
-// interface ButtonProps {
-//   name?: string,
-//   type: 'submit' | 'button' | 'reset',
-//   onClick: () => void
-// }
+interface ButtonProps {
+  name?: string;
+  type: 'submit' | 'button' | 'reset';
+  onClick: () => void;
+  disabled?: boolean; // Добавлен проп disabled
+}
 
-function Button({ name = "SEND", type, onClick }: ButtonProps) {
-
+function Button({ name = "SEND", type, onClick, disabled }: ButtonProps) {
   return (
-    <MainButton type={type} onClick={onClick}>
+    <MainButton type={type} onClick={onClick} disabled={disabled} className={disabled ? 'disabled' : ''}> {/* Применение класса disabled */}
       {name}
     </MainButton>
   );
 }
 export default Button;
-

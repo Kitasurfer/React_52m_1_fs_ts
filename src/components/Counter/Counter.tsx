@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Button from "../Button/Button";
-import "./styles.css";
+import { jsx } from '@emotion/react';
 import { CounterProps } from "./types";
+import { CounterWrapper, CounterButtons, CounterButton } from './styles';
 
-function Counter ({
-	 initialCount = 0 
-	}: CounterProps) {
+const Counter = ({
+  initialCount = 0 
+}: CounterProps) => {
   const [count, setCount] = useState<number>(initialCount);
 
   const increment = () => {
@@ -17,23 +17,21 @@ function Counter ({
   };
 
   return (
-    <div className="counter">
+    <CounterWrapper>
       <h2>Counter: {count}</h2>
-      <div className="counter-buttons">
-        <Button 
-          name="-" 
-          type="button" 
+      <CounterButtons>
+        <CounterButton 
           onClick={decrement} 
-          className="counter-button"
-        />
-        <Button 
-          name="+" 
-          type="button" 
+        >
+          -
+        </CounterButton>
+        <CounterButton 
           onClick={increment} 
-          className="counter-button"
-        />
-      </div>
-    </div>
+        >
+          +
+        </CounterButton>
+      </CounterButtons>
+    </CounterWrapper>
   );
 };
 

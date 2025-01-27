@@ -1,19 +1,20 @@
-.counter {
+import styled from '@emotion/styled';
+
+export const CounterWrapper = styled.div`
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   margin: 20px;
   text-align: center;
-}
+`;
 
-.counter-buttons {
+export const CounterButtons = styled.div`
   display: flex;
   gap: 10px;
   justify-content: center;
-}
+`;
 
-/* Стили для кастомных кнопок в Counter */
-.counter .counter-buttons .main-button.counter-button {
+export const CounterButton = styled.button`
   padding: 8px 16px;
   min-width: auto;
   font-size: 18px;
@@ -21,9 +22,9 @@
   border-radius: 4px;
   box-shadow: none;
   transition: background-color 0.3s ease;
-}
 
-.counter .counter-buttons .main-button.counter-button:hover {
-  background: #45a049;
-  background-image: none;
-}
+  &:hover {
+    background: #45a049;
+    background-image: none;
+  }
+`;
