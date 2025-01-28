@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { memo, FC } from 'react';
 
 export const LikeIcon: FC = memo(() => (

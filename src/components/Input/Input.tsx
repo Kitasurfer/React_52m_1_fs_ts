@@ -1,31 +1,19 @@
-
-import { InputProps } from './types';
-import styled from '@emotion/styled';
-
-const InputGroup = styled.div`
-  /* styles for InputGroup */
-`;
-
-const InputLabel = styled.label`
-  /* styles for InputLabel */
-`;
-
-const CustomInput = styled.input`
-  /* styles for CustomInput */
-`;
-
-const Input = ({
-  label,
-  name,
-  type = "text",
-  placeholder,
-}: InputProps) => {
+import { InputContainer, InputElement, Label } from "./styles";
+import { InputProps } from './types'
+function Input({ name, type = 'text', placeholder, label, id, value, onChange }: InputProps) {
   return (
-    <InputGroup>
-      {label && <InputLabel htmlFor={name}>{label}</InputLabel>}
-      <CustomInput name={name} type={type} placeholder={placeholder} />
-    </InputGroup>
+    <InputContainer>
+      {label && <Label htmlFor={id}>{label}</Label>}
+      <InputElement
+        name={name}
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+
+      />
+    </InputContainer>
   );
 }
-
 export default Input;

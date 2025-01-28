@@ -1,19 +1,13 @@
+import { ProductName, ProductWrapper } from "./styles";
+import { ProductProps } from "./types";
 
-import { ProductProps } from './types';
-import { ProductContainer, ProductTitle } from './styles';
-
-const Product = ({
-  name,
-  price,
-  onAddToCart
-}: ProductProps) => {
+function Product({ productName = "Unknown", productPrice }: ProductProps) {
   return (
-    <ProductContainer>
-      <ProductTitle>{name}</ProductTitle>
-      <p>Price: ${price}</p>
-      <button onClick={onAddToCart}>Add to Cart</button>
-    </ProductContainer>
+    <ProductWrapper>
+      <ProductName>{productName}</ProductName>
+      {productPrice !== undefined && <div>{productPrice} $</div>}
+    </ProductWrapper>
   );
-};
+}
 
 export default Product;

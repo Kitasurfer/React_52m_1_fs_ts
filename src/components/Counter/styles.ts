@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const CounterWrapper = styled.div`
   padding: 20px;
@@ -6,6 +6,12 @@ export const CounterWrapper = styled.div`
   border-radius: 8px;
   margin: 20px;
   text-align: center;
+`;
+
+export const CounterTitle = styled.h2`
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
 `;
 
 export const CounterButtons = styled.div`
@@ -16,15 +22,19 @@ export const CounterButtons = styled.div`
 
 export const CounterButton = styled.button`
   padding: 8px 16px;
-  min-width: auto;
   font-size: 18px;
-  background: #4CAF50;
+  background: #4caf50;
   border-radius: 4px;
-  box-shadow: none;
+  border: none;
+  color: white;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 
   &:hover {
     background: #45a049;
-    background-image: none;
+  }
+
+  &:active {
+    background: #3e8e41;
   }
 `;

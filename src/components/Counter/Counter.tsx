@@ -1,11 +1,8 @@
-import { useState } from "react";
-import { jsx } from '@emotion/react';
+import React, { useState } from "react";
 import { CounterProps } from "./types";
-import { CounterWrapper, CounterButtons, CounterButton } from './styles';
+import { CounterWrapper, CounterTitle, CounterButtons, CounterButton } from "./styles";
 
-const Counter = ({
-  initialCount = 0 
-}: CounterProps) => {
+const Counter: React.FC<CounterProps> = ({ initialCount = 0 }) => {
   const [count, setCount] = useState<number>(initialCount);
 
   const increment = () => {
@@ -18,18 +15,10 @@ const Counter = ({
 
   return (
     <CounterWrapper>
-      <h2>Counter: {count}</h2>
+      <CounterTitle>Counter: {count}</CounterTitle>
       <CounterButtons>
-        <CounterButton 
-          onClick={decrement} 
-        >
-          -
-        </CounterButton>
-        <CounterButton 
-          onClick={increment} 
-        >
-          +
-        </CounterButton>
+        <CounterButton onClick={decrement}>-</CounterButton>
+        <CounterButton onClick={increment}>+</CounterButton>
       </CounterButtons>
     </CounterWrapper>
   );
