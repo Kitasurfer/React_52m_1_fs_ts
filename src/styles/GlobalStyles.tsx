@@ -1,47 +1,53 @@
-import React from 'react';
-import { Global, css } from '@emotion/react';
+import React from "react";
+import { Global, css } from "@emotion/react";
 
 const globalStyles = css`
-  @import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
+  /* Импорт шрифтов */
+  @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
-* {
-  box-sizing: border-box;
-}
+  /* Сброс стилей */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-body,
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding: 0;
-}
+  body {
+    font-family: "Lato", sans-serif;
+    background-color: #f9f9f9; /* Нейтральный фон */
+    color: #333; /* Основной цвет текста */
+    line-height: 1.6;
+  }
 
-#root {
-  display: flex;
-  min-height: 100%;
-  font-family: Lato, sans-serif;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    padding: 0;
+  }
 
-body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  margin: 0;
-  padding: 20px;
-}
-`
+  /* Убираем лишние отступы */
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    padding: 0;
+  }
+`;
 
 function GlobalStyles() {
-  return <Global styles={globalStyles} />
+  return <Global styles={globalStyles} />;
 }
 
 export default GlobalStyles;
