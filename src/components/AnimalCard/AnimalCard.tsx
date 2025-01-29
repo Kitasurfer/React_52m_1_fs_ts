@@ -1,17 +1,16 @@
-import "./styles.css";
+import React from "react";
+import { AnimalCardWrapper, CardImage, Title, SpeciesBlock } from "./styles";
 import { AnimalCardProps } from "./types";
 
-
-function AnimalCard({ animalName, animalSpecies, animalImg, children }: AnimalCardProps) {
+const AnimalCard: React.FC<AnimalCardProps> = ({ animalName, animalSpecies, animalImg, children }) => {
   return (
-    <div className="animal-card-wrapper">
-      <h3>{animalName}</h3>
-      <div>{animalSpecies}</div> {/* // Species это порода животного */}
-      <img src={animalImg} className="card-image" />
-      {/* prop children позволяет добавлять дополнительную структуру(JSX, компоненты) в компонент */}
+    <AnimalCardWrapper>
+      <Title>{animalName}</Title>
+      <SpeciesBlock>{animalSpecies}</SpeciesBlock>
+      <CardImage src={animalImg} alt={`${animalName} image`} />
       {children}
-    </div>
+    </AnimalCardWrapper>
   );
-}
+};
 
 export default AnimalCard;

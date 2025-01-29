@@ -1,18 +1,13 @@
-import './styles.css';
-import { ProductProps } from './types';
+import { ProductName, ProductWrapper } from "./styles";
+import { ProductProps } from "./types";
 
-function Product ({
-	 name, 
-	 price, 
-	 onAddToCart 
-	}: ProductProps){
+function Product({ productName = "Unknown", productPrice }: ProductProps) {
   return (
-    <div className="product">
-      <h3>{name}</h3>
-      <p>Price: ${price}</p>
-      <button onClick={onAddToCart}>Add to Cart</button>
-    </div>
+    <ProductWrapper>
+      <ProductName>{productName}</ProductName>
+      {productPrice !== undefined && <div>{productPrice} $</div>}
+    </ProductWrapper>
   );
-};
+}
 
 export default Product;
