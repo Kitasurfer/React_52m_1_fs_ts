@@ -1,4 +1,5 @@
-import { Global, css } from "@emotion/react";
+import React from 'react';
+import { Global, css } from '@emotion/react';
 
 const globalStyles = css`
   @import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
@@ -29,6 +30,13 @@ p {
   display: flex;
   min-height: 100%;
   font-family: Lato, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
 }
 `
 
