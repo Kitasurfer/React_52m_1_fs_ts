@@ -33,7 +33,6 @@ function Homework10() {
   const onFirstInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setFirstInputValue(value);
-    fetchImageData();
   };
 
   const onSecondInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +43,7 @@ function Homework10() {
 
   useEffect(() => {
     fetchImageData();
-  }, []);
+  }, [firstInputValue]);
 
   return (
     <Container>
