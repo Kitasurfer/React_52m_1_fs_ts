@@ -1,29 +1,29 @@
 /** @jsxImportSource @emotion/react */
-import { useState, useCallback, memo, useEffect } from 'react';
+import React, { useState, useCallback, memo, useEffect } from 'react';
 import {
-  wrapperStyle,
-  containerStyle,
-  titleStyle,
-  statsStyle,
-  statItemStyle,
-  statCountStyle,
-  statLabelStyle,
-  actionsStyle,
-  resetSectionStyle,
-  likeButtonStyle,
-  dislikeButtonStyle,
-  resetButtonStyle
+  ContainerStyle,
+  TitleStyle,
+  StatItemStyle,
+  StatCountStyle,
+  StatLabelStyle,
+  ActionsStyle,
+  ResetSectionStyle,
+  LikeButtonStyle,
+  DislikeButtonStyle,
+  ResetButtonStyle,
+  FeedbackWrapper,
+  StatsStyle,
 } from './styles';
 import { LikeIcon, DislikeIcon, ResetIcon } from './IconsFeedback';
 import type { FeedbackProps } from './types';
 
-function Feedback({
+const Feedback: React.FC<FeedbackProps> = ({
   title = 'Feedback',
   initialLikes = 0,
   initialDislikes = 0,
   theme = 'light',
   onReaction,
-}: FeedbackProps) {
+}) => {
   const [likes, setLikes] = useState(initialLikes);
   const [dislikes, setDislikes] = useState(initialDislikes);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -38,14 +38,12 @@ function Feedback({
       } else if (type === 'dislike') {
         setDislikes((prev) => prev + 1);
       } else {
-        // reset
         setLikes(initialLikes);
         setDislikes(initialDislikes);
       }
 
       onReaction?.(type);
 
-      // Короткая задержка для имитации анимации
       setTimeout(() => {
         setIsAnimating(false);
       }, 100);
@@ -53,60 +51,53 @@ function Feedback({
     [initialLikes, initialDislikes, isAnimating, onReaction]
   );
 
-  // Синхронизируем локальный стейт, если изменились initialLikes/initialDislikes
   useEffect(() => {
     setLikes(initialLikes);
     setDislikes(initialDislikes);
   }, [initialLikes, initialDislikes]);
 
   return (
-    <div css={wrapperStyle}>
-      <div css={containerStyle(theme)}>
-        <h1 css={titleStyle}>{title}</h1>
-
-        <div css={statsStyle}>
-          <div css={statItemStyle}>
-            <span css={statCountStyle}>{likes}</span>
-            <span css={statLabelStyle}>Likes</span>
-          </div>
-          <div css={statItemStyle}>
-            <span css={statCountStyle}>{dislikes}</span>
-            <span css={statLabelStyle}>Dislikes</span>
-          </div>
-        </div>
-
-        <div css={actionsStyle}>
-          <button
-            css={[likeButtonStyle]}
+    <FeedbackWrapper>
+      <ContainerStyle theme={theme}>
+        <TitleStyle>{title}</TitleStyle>
+        <StatsStyle>
+          <StatItemStyle>
+            <StatCountStyle>{likes}</StatCountStyle>
+            <StatLabelStyle>Likes</StatLabelStyle>
+          </StatItemStyle>
+          <StatItemStyle>
+            <StatCountStyle>{dislikes}</StatCountStyle>
+            <StatLabelStyle>Dislikes</StatLabelStyle>
+          </StatItemStyle>
+        </StatsStyle>
+        <ActionsStyle>
+          <LikeButtonStyle
             onClick={() => handleReaction('like')}
             disabled={isAnimating}
           >
             <LikeIcon />
-            <span css={{ marginLeft: 8 }}>Like</span>
-          </button>
-          <button
-            css={[dislikeButtonStyle]}
+            <StatLabelStyle>Like</StatLabelStyle>
+          </LikeButtonStyle>
+          <DislikeButtonStyle
             onClick={() => handleReaction('dislike')}
             disabled={isAnimating}
           >
             <DislikeIcon />
-            <span css={{ marginLeft: 8 }}>Dislike</span>
-          </button>
-        </div>
-
-        <div css={resetSectionStyle}>
-          <button
-            css={[resetButtonStyle]}
+            <StatLabelStyle>Dislike</StatLabelStyle>
+          </DislikeButtonStyle>
+        </ActionsStyle>
+        <ResetSectionStyle>
+          <ResetButtonStyle
             onClick={() => handleReaction('reset')}
             disabled={isAnimating}
           >
             <ResetIcon />
-            <span css={{ marginLeft: 8 }}>Reset</span>
-          </button>
-        </div>
-      </div>
-    </div>
+            <StatLabelStyle>Reset</StatLabelStyle>
+          </ResetButtonStyle>
+        </ResetSectionStyle>
+      </ContainerStyle>
+    </FeedbackWrapper>
   );
-}
+};
 
 export default memo(Feedback);

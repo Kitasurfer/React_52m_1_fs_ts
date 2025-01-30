@@ -6,6 +6,7 @@ import {
   InputsContainer,
   ResultContainer,
   ResultBlock,
+  BackgroundImage,
 } from "./styles";
 
 interface InputData {
@@ -76,17 +77,20 @@ const Homework09: React.FC = () => {
     );
 
   return (
-    <HomeworkContainer>
-      <InputsContainer>
-        {renderInputs()}
-        <Button
-          name="Показать результат"
-          type="button"
-          onClick={handleButtonClick}
-        />
-      </InputsContainer>
-      {renderResults()}
-    </HomeworkContainer>
+    <>
+      <BackgroundImage />
+      <HomeworkContainer>
+        <InputsContainer>
+          {renderInputs()}
+          <Button
+            name="Показать результат"
+            type="button"
+            onClick={handleButtonClick}
+          />
+        </InputsContainer>
+        {renderResults()}
+      </HomeworkContainer>
+    </>
   );
 };
 

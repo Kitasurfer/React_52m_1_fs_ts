@@ -1,29 +1,34 @@
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
+import styled from "@emotion/styled";
 
-// Анимация появления
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+// Фоновое изображение
+export const BackgroundImage = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://ybis.ru/wp-content/uploads/2023/09/nochnoe-nebo-8-2.webp");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 `;
 
+// Главный контейнер с эффектом стекла
 export const HomeworkContainer = styled.div`
+  position: relative;
   padding: 2rem;
   max-width: 600px;
   margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
 
   &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
   }
 `;
 
@@ -32,7 +37,6 @@ export const InputsContainer = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
-  animation: ${fadeIn} 0.5s ease;
 `;
 
 export const ResultContainer = styled.div`
@@ -41,30 +45,33 @@ export const ResultContainer = styled.div`
   gap: 1rem;
   margin-top: 1.5rem;
   padding: 1.5rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  background-color: #f8f9fa;
-  animation: ${fadeIn} 0.5s ease;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
 
   &:hover {
-    background-color: #f0f2f5;
-    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
   }
 `;
 
 export const ResultBlock = styled.div`
   padding: 1rem;
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
   border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-size: 1rem;
-  color: #2c3e50;
-  border: 1px solid #e0e0e0;
-  transition: all 0.2s ease;
+  color: white;
 
   &:hover {
-    background-color: #f8f9fa;
-    border-color: #d0d7de;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px 0 rgba(31, 38, 135, 0.3);
   }
 
   @media (max-width: 768px) {

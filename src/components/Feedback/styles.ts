@@ -1,166 +1,199 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import { ThemeType } from './types';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 
-// Цветовая палитра
-export const colors = {
-  primaryLight: '#2e7d32',
-  primaryDark: '#81c784',
-  secondaryLight: '#d32f2f',
-  secondaryDark: '#ef9a9a',
-  backgroundLight: '#ffffff',
-  backgroundDark: '#121212',
-  backgroundBlue: '#0579d7',
-  textLight: '#ffffff',
-  textDark: '#212121',
-};
-
-// Обёртка всего компонента
-export const wrapperStyle = css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-  background-color: ${colors.backgroundLight};
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// Анимация появления элементов
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
-// Контейнер для контента
-export const containerStyle = (theme: ThemeType) => css`
-  background-color: ${theme === 'light' ? colors.backgroundLight : colors.backgroundBlue};
-  width: min(90%, 800px);
-  margin: 6rem auto 2rem;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
-  display: grid;
-  gap: 1.5rem;
-  color: ${theme === 'light' ? colors.textDark : colors.textLight};
+// Анимация пульсации кнопок
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+`;
 
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-    gap: 1.2rem;
-    margin-top: 5rem;
+// Главный контейнер
+export const ContainerStyle = styled.div<{ theme: 'light' | 'dark' }>`
+  padding: 2rem;
+  border-radius: 20px;
+  background: ${(props) =>
+    props.theme === 'light'
+      ? 'rgba(255, 255, 255, 0.8)'
+      : 'rgba(30, 30, 30, 0.8)'};
+  backdrop-filter: blur(15px);
+  box-shadow: ${(props) =>
+    props.theme === 'light'
+      ? '0 8px 32px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05)'
+      : '0 8px 32px rgba(255, 255, 255, 0.1), 0 4px 8px rgba(255, 255, 255, 0.05)'};
+  color: ${(props) => (props.theme === 'light' ? '#333' : '#fff')};
+  animation: ${fadeIn} 0.5s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: ${(props) =>
+      props.theme === 'light'
+        ? '0 12px 24px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1)'
+        : '0 12px 24px rgba(255, 255, 255, 0.15), 0 6px 12px rgba(255, 255, 255, 0.1)'};
   }
 `;
 
 // Заголовок
-export const titleStyle = css`
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: ${colors.textDark};
-  margin-bottom: 1.5rem;
+export const TitleStyle = styled.h1`
+  font-size: 2rem;
+  font-weight: 800;
   text-align: center;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+  margin-bottom: 1.5rem;
+  letter-spacing: 1.5px;
+  color: ${(props) => (props.theme === 'light' ? '#333' : '#fff')};
+  text-shadow: ${(props) =>
+    props.theme === 'light'
+      ? '0 2px 4px rgba(0, 0, 0, 0.1)'
+      : '0 2px 4px rgba(255, 255, 255, 0.1)'};
+  animation: ${fadeIn} 0.8s ease-in-out;
 `;
 
-// Секция статистики
-export const statsStyle = css`
+// Блок статистики
+export const StatsStyle = styled.div`
   display: flex;
   justify-content: space-around;
-  gap: 1rem;
+  margin-bottom: 2rem;
+  animation: ${fadeIn} 1s ease-in-out;
 `;
 
-export const statItemStyle = css`
+// Элемент статистики
+export const StatItemStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: ${(props) =>
+    props.theme === 'light'
+      ? 'rgba(255, 255, 255, 0.6)'
+      : 'rgba(0, 0, 0, 0.4)'};
+  backdrop-filter: blur(10px);
+  box-shadow: ${(props) =>
+    props.theme === 'light'
+      ? '0 4px 8px rgba(0, 0, 0, 0.05)'
+      : '0 4px 8px rgba(255, 255, 255, 0.05)'};
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: ${(props) =>
+      props.theme === 'light'
+        ? '0 8px 16px rgba(0, 0, 0, 0.1)'
+        : '0 8px 16px rgba(255, 255, 255, 0.1)'};
+  }
 `;
 
-export const statCountStyle = css`
-  font-size: 2rem;
+// Счетчик
+export const StatCountStyle = styled.span`
+  font-size: 1.8rem;
   font-weight: bold;
+  color: ${(props) => (props.theme === 'light' ? '#333' : '#fff')};
+  text-shadow: ${(props) =>
+    props.theme === 'light'
+      ? '0 2px 4px rgba(0, 0, 0, 0.1)'
+      : '0 2px 4px rgba(255, 255, 255, 0.1)'};
 `;
 
-export const statLabelStyle = css`
+// Подпись счетчика
+export const StatLabelStyle = styled.span`
   font-size: 1rem;
-  color: ${colors.textDark};
+  color: ${(props) => (props.theme === 'light' ? '#666' : '#ccc')};
+  text-transform: uppercase;
+  letter-spacing: 1px;
 `;
 
-// Секция для кнопок лайка/дизлайка
-export const actionsStyle = css`
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-`;
-
-// Секция кнопки сброса
-export const resetSectionStyle = css`
+// Блок действий
+export const ActionsStyle = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 1.5rem;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  animation: ${fadeIn} 1.2s ease-in-out;
 `;
 
-// Общий стиль для кнопок
-export const baseButtonStyle = css`
+// Кнопка
+const ButtonStyle = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: 2px solid transparent;
-  border-radius: 16px;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  gap: 8px; // Отступ между иконкой и текстом
+  animation: ${pulse} 1.5s infinite;
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
-  }
-
-  svg {
-    width: 24px; // Явно задаем размер иконок
-    height: 24px;
-    fill: currentColor; // Иконки наследуют цвет текста кнопки
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    animation: none;
   }
 `;
 
-// Стили индивидуальных кнопок
-export const likeButtonStyle = css`
-  ${baseButtonStyle};
-  background-color: ${colors.primaryLight};
-  color: ${colors.textLight};
+// Кнопка "Like"
+export const LikeButtonStyle = styled(ButtonStyle)`
+  background: linear-gradient(145deg, #4caf50, #43a047);
+  color: white;
 
-  &:hover {
-    background-color: ${colors.primaryDark};
-    transform: scale(1.05);
+  &:hover:not(:disabled) {
+    background: linear-gradient(145deg, #43a047, #388e3c);
   }
 `;
 
-export const dislikeButtonStyle = css`
-  ${baseButtonStyle};
-  background-color: ${colors.secondaryLight};
-  color: ${colors.textLight};
+// Кнопка "Dislike"
+export const DislikeButtonStyle = styled(ButtonStyle)`
+  background: linear-gradient(145deg, #f44336, #e53935);
+  color: white;
 
-  &:hover {
-    background-color: ${colors.secondaryDark};
-    transform: scale(1.05);
+  &:hover:not(:disabled) {
+    background: linear-gradient(145deg, #e53935, #d32f2f);
   }
 `;
 
-export const resetButtonStyle = css`
-  ${baseButtonStyle};
-  background-color: blue;
-  color: ${colors.textLight};
+// Кнопка "Reset"
+export const ResetButtonStyle = styled(ButtonStyle)`
+  background: linear-gradient(145deg, #2196f3, #1e88e5);
+  color: white;
 
-  &:hover {
-    background-color: ${colors.backgroundBlue};
-    color: ${colors.textDark};
-    transform: scale(1.05);
+  &:hover:not(:disabled) {
+    background: linear-gradient(145deg, #1e88e5, #1976d2);
   }
+`;
+
+// Блок сброса
+export const ResetSectionStyle = styled.div`
+  text-align: center;
+  animation: ${fadeIn} 1.5s ease-in-out;
+`;
+
+// Обертка компонента
+export const FeedbackWrapper = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
 `;
