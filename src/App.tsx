@@ -49,9 +49,10 @@ import GlobalStyles from './styles/GlobalStyles'
 //import Lesson09 from './lesson/Lesson09/Lesson09';
 //import Consultation_04 from './consultations/Consultation_04/Consultation_04';
 //import Homework09 from './homeworks/Homework09/Homework09';
-import Lesson10 from './lesson/Lesson10/Lesson10';
-import Feedback from './components/Feedback/Feedback';
-import Homework10 from './homeworks/Homework10/Homework10';
+//import Lesson10 from './lesson/Lesson10/Lesson10';
+//import Feedback from './components/Feedback/Feedback';
+//import Homework10 from './homeworks/Homework10/Homework10';
+import Lesson11 from './lesson/Lesson11/Lesson11';
 
 
 //homeworks
@@ -77,7 +78,8 @@ function App() {
      {/*  <Homework09 /> */}
 		 {/* <Lesson10 /> */}
 		 {/*<Feedback title="Feedback" initialLikes={0} initialDislikes={0} theme="light" onReaction={(type) => console.log('Reaction:', type)} />*/}
-		 <Homework10 />
+		{/*  <Homework10 /> */}
+		<Lesson11 />
     </>
   )
 }
