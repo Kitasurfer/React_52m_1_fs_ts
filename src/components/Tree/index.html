@@ -1,13 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ECharts Example</title>
-  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Points Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { margin: 0; overflow: hidden; background: #222; }
+        canvas { display: block; }
+    </style>
 </head>
 <body>
-  <div id="main" style="width: 100%; height: 600px;"></div>
-  <script src="path/to/your/script.js"></script>
+<script>
+    // Инициализация Three.js
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Количество дней (точек)
+    const totalDays = 36500;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(totalDays * 3);
+    const colors = new Float32Array(totalDays * 3);
+
+    // Генерация точек (в виде кубиков)
+    for (let i = 0; i < totalDays; i++) {
+        const angle = (i / 365) * Math.PI * 2;
+        const radius = 5 + (i / 5000);
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+        const z = i / 3650; // Чтобы делать спираль вверх
+
+        positions[i * 3] = x;
+        positions[i * 3 + 1] = y;
+        positions[i * 3 + 2] = z;
+
+        // Цвет для многослойных точек (каждая точка имеет 3 цвета)
+        const r = Math.random();
+        const g = Math.random();
+        const b = Math.random();
+
+        colors[i * 3] = r;
+        colors[i * 3 + 1] = g;
+        colors[i * 3 + 2] = b;
+    }
+
+    // Применяем к геометрии
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+    // Материал с поддержкой нескольких цветов
+    const material = new THREE.PointsMaterial({
+        vertexColors: true,
+        size: 0.05
+    });
+
+    // Добавляем в сцену
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    // Позиция камеры
+    camera.position.z = 10;
+
+    // Анимация сцены
+    function animate() {
+        requestAnimationFrame(animate);
+        points.rotation.y += 0.001;
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Добавление взаимодействия (клик на точку)
+    window.addEventListener("click", function (event) {
+        const mouse = new THREE.Vector2(
+            (event.clientX / window.innerWidth) * 2 - 1,
+            -(event.clientY / window.innerHeight) * 2 + 1
+        );
+        const raycaster = new THREE.Raycaster();
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObject(points);
+        if (intersects.length > 0) {
+            alert("Вы нажали на день!");
+        }
+    });
+
+    // Автоматическое изменение размеров экрана
+    window.addEventListener("resize", function () {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+</script>
 </body>
 </html>
