@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { EmployeeFormValues } from "./types";
 import {
   FormContainer,
   FormTitle,
@@ -10,13 +11,6 @@ import {
   SubmitButton,
   ErrorText,
 } from "./styles";
-
-interface EmployeeFormValues {
-  fullName: string;
-  age: number | null;
-  jobTitle: string;
-  usageRules: boolean;
-}
 
 const validationSchema = Yup.object().shape({
   fullName: Yup.string()
