@@ -1,3 +1,4 @@
+
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
@@ -162,3 +163,4 @@ export const ErrorMessage = styled.div`
   text-align: center;
   animation: ${shake} 0.5s ease;
 `;
+
