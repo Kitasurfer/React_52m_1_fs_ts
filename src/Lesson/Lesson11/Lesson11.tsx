@@ -12,6 +12,7 @@ import {
   DeleteButton,
   ErrorMessage,
 } from "./styles";
+import { CatFact } from "./types";
 
 const Lesson11: React.FC = () => {
   const [facts, setFacts] = useState<CatFact[]>([]);
