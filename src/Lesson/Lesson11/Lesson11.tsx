@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 import {
   StyledContainer,
   Header,
@@ -9,17 +9,13 @@ import {
   CatImage,
   FactText,
   DeleteButton,
-  ErrorMessage
-} from './styles';
-
-
+  ErrorMessage,
+} from "./styles";
 
 const Lesson11: React.FC = () => {
   const [facts, setFacts] = useState<CatFact[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-
-  
 
   const fetchFact = useCallback(async () => {
     setIsLoading(true);
@@ -27,29 +23,29 @@ const Lesson11: React.FC = () => {
 
     try {
       const [factRes, imageRes] = await Promise.all([
-        fetch('https://catfact.ninja/fact'),
-        fetch('https://api.thecatapi.com/v1/images/search')
+        fetch("https://catfact.ninja/fact"),
+        fetch("https://api.thecatapi.com/v1/images/search"),
       ]);
 
       if (!factRes.ok || !imageRes.ok) {
-        throw new Error('Error fetching data');
+        throw new Error("Error fetching data");
       }
 
       const [factData, imageData] = await Promise.all([
         factRes.json(),
-        imageRes.json()
+        imageRes.json(),
       ]);
 
-      setFacts(prev => [
+      setFacts((prev) => [
         ...prev,
         {
           id: Date.now(),
           fact: factData.fact,
-          imageUrl: imageData[0].url
-        }
+          imageUrl: imageData[0].url,
+        },
       ]);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error message');
+      setError(err instanceof Error ? err.message : "Error message");
     } finally {
       setIsLoading(false);
     }
@@ -57,19 +53,18 @@ const Lesson11: React.FC = () => {
 
   const deleteAll = () => setFacts([]);
   const deleteSingle = (id: number) =>
-    setFacts(prev => prev.filter(fact => fact.id !== id));
+    setFacts((prev) => prev.filter((fact) => fact.id !== id));
 
-	// Автоматический запрос факта при загрузке компонента
+  // Автоматический запрос факта при загрузке компонента
   useEffect(() => {
     fetchFact();
   }, []);
-	
 
   return (
     <StyledContainer>
       <Header>😺 Cat Facts Delight 😺</Header>
       <ActionButton variant="primary" onClick={fetchFact} disabled={isLoading}>
-        {isLoading ? 'Loading Cat Fact...' : 'GET MORE INFO'}
+        {isLoading ? "Loading Cat Fact..." : "GET MORE INFO"}
       </ActionButton>
 
       {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -83,7 +78,10 @@ const Lesson11: React.FC = () => {
                   <CatImage src={imageUrl} alt="Cat Image" loading="lazy" />
                 </ImageContainer>
                 <FactText>{fact}</FactText>
-                <DeleteButton onClick={() => deleteSingle(id)} title="DELETE ALL DATA”">
+                <DeleteButton
+                  onClick={() => deleteSingle(id)}
+                  title="DELETE ALL DATA”"
+                >
                   🐾
                 </DeleteButton>
               </FactItem>
@@ -91,7 +89,7 @@ const Lesson11: React.FC = () => {
           </FactsContainer>
 
           <ActionButton variant="danger" onClick={deleteAll}>
-						DELETE ALL FACTS
+            DELETE ALL FACTS
           </ActionButton>
         </>
       )}

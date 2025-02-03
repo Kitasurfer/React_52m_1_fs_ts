@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -14,18 +14,18 @@ export const StyledContainer = styled.div`
   position: relative;
   background: linear-gradient(135deg, #ffffff, #f0f4f8);
   min-height: 100vh;
-	width: 100vw;
+  width: 100vw;
   padding: 2rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   &::before,
   &::after {
-    content: '🐾';
+    content: "🐾";
     font-size: 4rem;
     position: absolute;
     opacity: 0.1;
@@ -40,9 +40,7 @@ export const StyledContainer = styled.div`
   }
 `;
 
-
-
- export const Header = styled.h1`
+export const Header = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   color: #2c3e50;
@@ -55,25 +53,25 @@ export const StyledContainer = styled.div`
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
-export const ActionButton = styled.button<{ variant: 'primary' | 'danger' }>`
+export const ActionButton = styled.button<{ variant: "primary" | "danger" }>`
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 12px;
   background: ${({ variant }) =>
-    variant === 'primary'
-      ? 'linear-gradient(45deg, #ff9a9e, #fad0c4)'
-      : 'linear-gradient(45deg, #f77062, #fe5196)'};
+    variant === "primary"
+      ? "linear-gradient(45deg, #ff9a9e, #fad0c4)"
+      : "linear-gradient(45deg, #f77062, #fe5196)"};
   color: #fff;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0.5rem;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0px 6px 8px rgba(0,0,0,0.15);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
   }
 
   &:disabled {
@@ -92,7 +90,7 @@ export const FactsContainer = styled.div`
   border: 2px dashed #ffc0cb;
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   animation: ${fadeIn} 0.5s ease;
 `;
 
@@ -108,7 +106,7 @@ export const FactItem = styled.div`
 
   &:hover {
     transform: translateX(5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -146,7 +144,7 @@ export const DeleteButton = styled.button`
   color: #e74c3c;
   font-size: 1.5rem;
   cursor: pointer;
-	margin-left: auto;
+  margin-left: auto;
   transition: transform 0.3s ease, color 0.3s ease;
 
   &:hover {
