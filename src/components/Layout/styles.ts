@@ -15,7 +15,19 @@ export const Header = styled.header`
   padding: 20px;
   background-color: rebeccapurple;
   color: white;
+  position: fixed; /* Фиксированное положение */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Поверх остального контента */
 `;
+
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 90px; /* Отступ, чтобы контент не залезал под хедер */
+`;
+
 export const LogoContainer = styled.div`
   width: 70px;
   height: 70px;
@@ -35,11 +47,6 @@ export const StyledNavLink = styled(NavLink)`
   color: white;
 `;
 
-export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-`;
 
 export const Footer = styled.footer`
   display: flex;
