@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-import Button from "components/Button/Button"
-import { Title, UsersPage } from "./styles"
+import Button from "components/Button/Button";
+import { Title, UsersPage } from "./styles";
 
 function Users() {
-
-
   return (
     <UsersPage>
       <Title>Select user</Title>
       {/* <Link to='/users/user'>Go to User page</Link> */}
-      <Link to='user'>Go to User page</Link>
-      <Button name="Go to About Page" onClick={() => { }} />
+      <Link to="user">Go to User page</Link>
+      <Button name="Go to About Page" onClick={() => {}} type="button" />
     </UsersPage>
-  )
+  );
 }
 
-export default Users
+export default Users;
