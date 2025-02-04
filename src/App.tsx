@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import GlobalStyles from './styles/GlobalStyles'
+import GlobalStyles from "./styles/GlobalStyles";
 
 //lessons
 // import Lesson06 from './lessons/Lesson06/Lesson06'
@@ -10,12 +10,18 @@ import GlobalStyles from './styles/GlobalStyles'
 // import Lesson10 from './lessons/Lesson10/Lesson10'
 // import Lesson12 from 'lessons/Lesson12/Lesson12'
 //---Lesson 13
-import Layout from 'components/Layout/Layout'
-import Home from 'pages/Home/Home'
-import About from 'pages/About/About'
-import Users from 'pages/Users/Users'
-import User from 'pages/Users/components/User/User'
-
+import Layout from "components/Layout/Layout";
+import Home from "pages/Home/Home";
+import About from "pages/About/About";
+import Users from "pages/Users/Users";
+import User from "pages/Users/components/User/User";
+import Clients from "./pages/Clients/Clients";
+import Facebook from "./pages/Clients/components/Facebook/Facebook";
+import Google from "./pages/Clients/components/Google/Google";
+import Amazon from "./pages/Clients/components/Amazon/Amazon";
+import Emirates from "pages/Clients/components/Emirates/Emirates";
+import KLM from "pages/Clients/components/KLM/KLM";
+import Qatar from "pages/Clients/components/Qatar/Qatar";
 
 //homeworks
 // import Homework08 from './homeworks/Homework08/Homework08'
@@ -27,9 +33,7 @@ import User from 'pages/Users/components/User/User'
 // import Consultation03 from './consultations/Consultation03/Consultation03'
 // import Consultation_04 from './consultations/Consultation_04/Consultation_04'
 
-
 function App() {
-
   return (
     //BrowserRouter - компонент из react-router-dom, который позволяет нам работать с маршрутами
     // по всему приложению
@@ -40,10 +44,17 @@ function App() {
         <Routes>
           {/* Route - компонент, в который передаётся маршрут и контент, 
          который нужно отрисовать по этому маршруту в Layout */}
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/users' element={<Users />} />
-          <Route path='/users/user' element={<User />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/users/user" element={<User />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/clients/facebook" element={<Facebook />} />
+          <Route path="/clients/google" element={<Google />} />
+          <Route path="/clients/amazon" element={<Amazon />} />
+          <Route path="/clients/emirates" element={<Emirates />} />
+          <Route path="/clients/klm" element={<KLM />} />
+          <Route path="/clients/qatar" element={<Qatar />} />
         </Routes>
       </Layout>
       {/* --Topic: TypeScript - Introduction */}
@@ -65,7 +76,7 @@ function App() {
       {/* <Lesson12 /> */}
       {/* <Homework12/> */}
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
