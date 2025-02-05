@@ -34,13 +34,16 @@ export const CompanyItem = styled.li`
   align-items: center;
   margin: 10px 0;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  transition: background 0.3s ease;
-  min-height: 60px; /* Увеличиваем высоту для лучшего отображения */
+  transition: background 0.3s ease, transform 0.3s ease;
+  min-height: 80px; /* Увеличиваем высоту для лучшего отображения */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -56,18 +59,13 @@ export const CompanyLink = styled(Link)`
 `;
 
 export const CompanyLogo = styled.img`
-  width: 50px;
-  height: 50px;
-  margin-right: 12px;
-  border-radius: 50%;
-  object-fit: contain;
-  background-color: #ffffff;
-  padding: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease-in-out;
+  height: 60px; /* Установите фиксированную высоту */
+  width: auto; /* Автоматическая ширина для сохранения пропорций */
+  margin-right: 20px; /* Отступ справа */
+  transition: transform 0.3s ease;
+  border-radius: 10px; /* Добавляем скругление углов */
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.2); /* Увеличение логотипа при наведении */
   }
 `;

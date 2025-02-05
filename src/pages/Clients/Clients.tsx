@@ -18,7 +18,7 @@ function Clients() {
               src="https://1000logos.net/wp-content/uploads/2017/02/Facebook-Logosu.png"
               alt="Facebook Logo"
             />
-            Facebook
+            <span>Facebook - социальная сеть</span>
           </CompanyLink>
         </CompanyItem>
 
@@ -28,7 +28,7 @@ function Clients() {
               src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
               alt="Google Logo"
             />
-            Google
+            <span>Google - поисковая система</span>
           </CompanyLink>
         </CompanyItem>
 
@@ -38,7 +38,7 @@ function Clients() {
               src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
               alt="Amazon Logo"
             />
-            Amazon
+            <span>Amazon - онлайн-магазин</span>
           </CompanyLink>
         </CompanyItem>
 
@@ -48,7 +48,7 @@ function Clients() {
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Emirates_logo.svg/1200px-Emirates_logo.svg.png"
               alt="Emirates Logo"
             />
-            Emirates
+            <span>Emirates - авиакомпания</span>
           </CompanyLink>
         </CompanyItem>
 
@@ -58,7 +58,7 @@ function Clients() {
               src="https://www.fahnenversand.de/fotw/images/n/nl$klm61b.gif"
               alt="KLM Logo"
             />
-            KLM
+            <span>KLM - авиакомпания</span>
           </CompanyLink>
         </CompanyItem>
 
@@ -68,7 +68,7 @@ function Clients() {
               src="https://d21buns5ku92am.cloudfront.net/69647/images/433143-QR%20Logo%20Horizontal%20White-6a70c4-medium-1654772384.png"
               alt="Qatar Airways Logo"
             />
-            Qatar Airways
+            <span>Qatar Airways - авиакомпания</span>
           </CompanyLink>
         </CompanyItem>
       </CompanyList>

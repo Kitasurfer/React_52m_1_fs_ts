@@ -55,6 +55,7 @@ function App() {
           <Route path="/clients/emirates" element={<Emirates />} />
           <Route path="/clients/klm" element={<KLM />} />
           <Route path="/clients/qatar" element={<Qatar />} />
+					<Route path="*" element={<Home />} />
         </Routes>
       </Layout>
       {/* --Topic: TypeScript - Introduction */}
