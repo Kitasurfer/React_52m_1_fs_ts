@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { BlogContext } from "../../BlogContext";
 import { MessageText } from "./styles";
 
-const Message: React.FC = () => {
+function Message() {
   const blogContext = useContext(BlogContext);
   if (!blogContext) {
     throw new Error("Message должен использоваться внутри BlogProvider");

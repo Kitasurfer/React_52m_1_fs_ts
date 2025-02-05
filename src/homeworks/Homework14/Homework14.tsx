@@ -1,8 +1,7 @@
-import React from "react";
 import { BlogProvider } from "./BlogContext";
 import BlogManagement from "./components/BlogManagement/BlogManagement";
 
-const Homework14: React.FC = () => {
+function Homework14() {
   return (
     <BlogProvider>
       <BlogManagement />

@@ -60,7 +60,7 @@ function App() {
           <Route path='/clients/facebook' element={<Facebook />} />
           <Route path='/clients/google' element={<Google />} />
           <Route path='/clients/amazon' element={<Amazon />} />
-					<Route path='/clients/companies/klm' element={<KLM />} />
+					<Route path='/clients/klm' element={<KLM />} />
 					<Route path='/clients/emirates' element={<Emirates />} />
 					<Route path='/clients/qatar' element={<Qatar />} />
 

@@ -1,8 +1,7 @@
-import React from "react";
 import Message from "../Message/Message";
 import { CardContainer, Title } from "./styles";
 
-const Card: React.FC = () => {
+function Card () {
   return (
     <CardContainer>
       <Title>Имя Фамилия</Title>

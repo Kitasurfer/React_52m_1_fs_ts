@@ -1,10 +1,13 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { BlogContext } from "../../BlogContext";
 import Card from "../Card/Card";
 import { Container, Input, Button } from "./styles";
+import { log } from "console";
 
-const BlogManagement: React.FC = () => {
-  const [inputValue, setInputValue] = useState("");
+
+
+function BlogManagement() {
+  const [inputValue, setInputValue] = useState<string>("");
   const blogContext = useContext(BlogContext);
 
   if (!blogContext) {
@@ -19,6 +22,8 @@ const BlogManagement: React.FC = () => {
       setInputValue("");
     }
   };
+
+	
 
   return (
     <Container>
