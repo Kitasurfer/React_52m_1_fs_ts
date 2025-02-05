@@ -1,6 +1,6 @@
-import React from 'react';
-import Message from '../Message/Message';
-import { CardContainer, Title } from './styles';
+import React from "react";
+import Message from "../Message/Message";
+import { CardContainer, Title } from "./styles";
 
 const Card: React.FC = () => {
   return (

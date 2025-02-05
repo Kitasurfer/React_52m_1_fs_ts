@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode } from "react";
 
 export interface IBlogContext {
   postedMessage: string;
@@ -12,7 +12,7 @@ interface BlogProviderProps {
 }
 
 export const BlogProvider: React.FC<BlogProviderProps> = ({ children }) => {
-  const [postedMessage, setPostedMessage] = useState<string>('');
+  const [postedMessage, setPostedMessage] = useState<string>("");
 
   return (
     <BlogContext.Provider value={{ postedMessage, setPostedMessage }}>
